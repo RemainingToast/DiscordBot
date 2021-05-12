@@ -17,6 +17,10 @@ module.exports = class Command extends commando.Command {
         const embed = new discord.MessageEmbed()
             .setColor('#00f800')
             .setTitle('Help Command')
+            .setDescription(`${message.author}` + `\n\n`
+                + `**Stats Site:** https://stats.2b2t.com.au` + `\n`
+                + `**Purchase Priority/MOTDs:** https://priority.2b2t.com.au`
+            )
             .setURL('https://2b2t.com.au')
             .addFields(
                 {

@@ -33,7 +33,7 @@ module.exports = class Command extends commando.Command {
                 const uuid = result1.data.data.player.id
                 const avatar = result1.data.data.player.avatar
 
-                axios.get(`http://139.99.210.123:8080/v1/player?player=${uuid}`)
+                axios.get(`https://stats.2b2t.com.au/v1/player?player=${uuid}`)
                     .then((result) => {
 
                         const average_ping = result.data.info.average_ping

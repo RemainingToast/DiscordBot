@@ -14,7 +14,7 @@ module.exports = class Command extends commando.Command {
     }
 
     async run(message) {
-        axios.get(`http://139.99.210.123:8080/v1/serverOverview?server=2b2t%20Australia`)
+        axios.get(`https://stats.2b2t.com.au/v1/serverOverview?server=2b2t%20Australia`)
             .then((result) => {
 
                 const players = String(result.data.numbers.online_players)

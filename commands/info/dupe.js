@@ -17,7 +17,7 @@ module.exports = class Command extends commando.Command {
             .setColor('#00f800')
             .setDescription(`${message.author}` + `\n\n` +
                 `Current working and public dupe method` +  `\n\n` +
-                `**how to dupe (for specks):** https://www.youtube.com/watch?v=lWjJlQjhNLU`
+                `**how to dupe (for specks):** https://www.youtube.com/watch?v=n-fN6txZNgc`
             ).setFooter(`do ${config.prefix}help for more commands`)
 
         await message.channel.send(embed)

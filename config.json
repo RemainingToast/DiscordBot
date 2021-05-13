@@ -1,8 +1,8 @@
 {
   "token": "",
-  "owner_id": -1,
-  "bot_ch_id": -1,
-  "meme_ch_id": -1,
+  "owner_id": "",
+  "bot_ch_id": "",
+  "meme_ch_id": "",
   "server_ip": "",
   "prefix": "!"
 }

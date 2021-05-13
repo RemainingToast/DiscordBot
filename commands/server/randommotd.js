@@ -35,6 +35,6 @@ module.exports = class Command extends commando.Command {
                 }).catch((error) => {
                 console.log(error)
             })
-        }
+        } else message.delete()
     }
 }

@@ -124,6 +124,6 @@ module.exports = class Command extends commando.Command {
                     .setFooter(`usage: ${config.prefix}lookup  username|uuid`)
                 channel.send(embed)
             }
-        }
+        } else message.delete()
     }
 }

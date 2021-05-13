@@ -21,7 +21,7 @@ module.exports = class Command extends commando.Command {
                 .setTitle('Help Command')
                 .setDescription(`${message.author}` + `\n\n`
                     + `**Stats Site:** https://stats.2b2t.com.au` + `\n`
-                    + `**Purchase Priority/MOTDs:** https://priority.2b2t.com.au`
+                    + `**Purchase Priority/MOTDs:** https://donate.2b2t.com.au`
                 )
                 .setURL('https://2b2t.com.au')
                 .addFields(
@@ -63,6 +63,6 @@ module.exports = class Command extends commando.Command {
                 ).setFooter('Some commands may have a delayed response when it is fetching from the API')
 
             await message.channel.send(embed)
-        }
+        } else message.delete()
     }
 }

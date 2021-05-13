@@ -35,6 +35,6 @@ module.exports = class Command extends commando.Command {
 
                     message.channel.send(embed)
                 })
-        }
+        } else message.delete()
     }
 }

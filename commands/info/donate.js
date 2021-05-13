@@ -17,7 +17,7 @@ module.exports = class Command extends commando.Command {
             .setDescription(
                 `${message.author}` + `\n\n` +
                 `The Server costs $83 AUD a month. The hardware is an Intel Core i7-7700k CPU, RAM 32GB and 2x HDD SATA 4TB in soft raid. The extra couple dollars goes towards yearly domain cost. That's $85 AUD.` + `\n\n` +
-                `**donations:** https://2b2t.com.au/`
+                `**donations:** https://donate.2b2t.com.au/`
             )
             .setFooter('You can be rewarded for donations, more information on the website')
 

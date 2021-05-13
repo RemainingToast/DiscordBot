@@ -27,6 +27,6 @@ module.exports = class Command extends commando.Command {
                 ).setFooter(`do ${prefix}help for more commands`)
 
             await message.channel.send(embed)
-        }
+        } else message.delete()
     }
 }

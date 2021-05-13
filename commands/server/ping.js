@@ -90,6 +90,6 @@ module.exports = class Command extends commando.Command {
                     .setFooter(`usage: ${config.prefix}ping username|uuid`)
                 channel.send(embed)
             }
-        }
+        } else message.delete()
     }
 }

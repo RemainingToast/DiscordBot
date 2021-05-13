@@ -15,22 +15,26 @@ module.exports = class Command extends commando.Command {
     }
 
     async run(message) {
-        axios.get(`https://mcapi.xdefcon.com/server/${config.server_ip}/full/json`)
-            .then((result) => {
+        if(message.channel.id === config.bot_ch_id) {
+            axios.get(`https://mcapi.xdefcon.com/server/${config.server_ip}/full/json`)
+                .then((result) => {
 
-                const embed = new discord.MessageEmbed()
-                    .setColor('#00f800')
-                    .setDescription(`${message.author}`)
-                    .addFields(
-                        {
-                            name: "MOTD",
-                            value: `${result.data.motd.text}`,
-                            inline: true
-                        }
-                    ).setFooter('You can add your own by donating on https://2b2t.com.au/')
+                    const embed = new discord.MessageEmbed()
+                        .setColor('#00f800')
+                        .setDescription(`${message.author}`)
+                        .addFields(
+                            {
+                                name: "MOTD",
+                                value: `${result.data.motd.text}`,
+                                inline: true
+                            }
+                        ).setFooter('You can add your own by donating on https://2b2t.com.au/')
 
-                message.channel.send(embed)
+                    message.channel.send(embed)
 
-            }).catch((error) => { console.log(error) })
+                }).catch((error) => {
+                console.log(error)
+            })
+        }
     }
 }

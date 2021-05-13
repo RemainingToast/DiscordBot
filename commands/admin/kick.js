@@ -7,13 +7,13 @@ module.exports = class Command extends commando.Command {
             name: 'kick',
             group: 'admin',
             memberName: 'kick',
-            description: 'Kick a discord member',
-            clientPermissions: [
-                'KICK_MEMBERS'
-            ],
-            userPermissions: [
-                'KICK_MEMBERS'
-            ]
+                description: 'Kick a discord member',
+                clientPermissions: [
+                    'KICK_MEMBERS'
+                ],
+                userPermissions: [
+                    'KICK_MEMBERS'
+                ]
         });
     }
 

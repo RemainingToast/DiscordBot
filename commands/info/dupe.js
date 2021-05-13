@@ -13,13 +13,15 @@ module.exports = class Command extends commando.Command {
     }
 
     async run(message) {
-        const embed = new discord.MessageEmbed()
-            .setColor('#00f800')
-            .setDescription(`${message.author}` + `\n\n` +
-                `Current working and public dupe method` +  `\n\n` +
-                `**how to dupe (for specks):** https://www.youtube.com/watch?v=n-fN6txZNgc`
-            ).setFooter(`do ${config.prefix}help for more commands`)
+        if(message.channel.id === config.bot_ch_id) {
+            const embed = new discord.MessageEmbed()
+                .setColor('#00f800')
+                .setDescription(`${message.author}` + `\n\n` +
+                    `Current working and public dupe method` + `\n\n` +
+                    `**how to dupe (for specks):** https://www.youtube.com/watch?v=n-fN6txZNgc`
+                ).setFooter(`do ${config.prefix}help for more commands`)
 
-        await message.channel.send(embed)
+            await message.channel.send(embed)
+        }
     }
 }

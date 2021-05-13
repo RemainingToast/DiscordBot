@@ -7,9 +7,15 @@ module.exports = class Command extends commando.Command {
         super(client, {
             name: 'serverinfo',
             aliases: ['info'],
-            group: 'info',
+            group: 'admin',
             memberName: 'serverinfo',
             description: 'Discord Server Information',
+            clientPermissions: [
+                'ADMINISTRATOR'
+            ],
+            userPermissions: [
+                'ADMINISTRATOR'
+            ]
         });
     }
 

@@ -44,32 +44,19 @@ module.exports = class Command extends commando.Command {
 
                             const embed = new discord.MessageEmbed()
                                 .setColor('#00f800')
-                                .setTitle(`${username}'s Ping`)
                                 .setAuthor(
                                     `${username}`,
                                     `${avatar}`,
                                     `https://namemc.com/search?q=${uuid}`
                                 )
                                 .setThumbnail(`${avatar}`)
-                                .setDescription(`*Results will be \"Unavailable\" if player hasn\'t connected recently*`)
-                                .addFields(
-                                    {
-                                        name: "Average",
-                                        value: `${average_ping}`,
-                                        inline: true
-                                    },
-                                    {
-                                        name: "Best",
-                                        value: `${best_ping}`,
-                                        inline: true
-                                    },
-                                    {
-                                        name: "Worst",
-                                        value: `${worst_ping}`,
-                                        inline: true
-                                    }
-                                ).setFooter(`do ${config.prefix}help for more commands`)
-
+                                .setDescription(
+                                    `${message.author}\n\n**${username}'s Ping**` +
+                                    `\`\`\`` +
+                                    `${username}'s best ping is ${best_ping}, worst ${worst_ping}ms and average is ${average_ping}ms.` + `\n` +
+                                    `\`\`\``
+                                )
+                                .setFooter('do /help on the minecraft server to get a list of commands.')
                             message.channel.send(embed)
 
                         }).catch((error) => {

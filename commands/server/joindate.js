@@ -66,17 +66,17 @@ module.exports = class Command extends commando.Command {
                                 .addFields(
                                     {
                                         name: "First Join",
-                                        value: `${first_join}`,
+                                        value: `\`\`\`${first_join}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "Last Seen",
-                                        value: `${last_seen}`,
+                                        value: `\`\`\`${last_seen}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "Activity Status",
-                                        value: `${activity}`,
+                                        value: `\`\`\`${activity}\`\`\``,
                                         inline: true
                                     }
                                 ).setFooter(`do ${config.prefix}help for more commands`)

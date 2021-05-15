@@ -56,27 +56,27 @@ module.exports = class Command extends commando.Command {
                                 .addFields(
                                     {
                                         name: "Player Kills",
-                                        value: `${player_kills}`,
+                                        value: `\`\`\`${player_kills}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "Mob Kills",
-                                        value: `${mob_kills}`,
+                                        value: `\`\`\`${mob_kills}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "Deaths",
-                                        value: `${deaths}`,
+                                        value: `\`\`\`${deaths}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "KDR",
-                                        value: `${(player_kills / deaths).toFixed(2)}`,
+                                        value: `\`\`\`${(player_kills / deaths).toFixed(2)}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "Favorite Weapon",
-                                        value: `${weapon}`,
+                                        value: `\`\`\`${weapon}\`\`\``,
                                         inline: true
                                     }
                                 ).setFooter(`do ${config.prefix}help for more commands`)

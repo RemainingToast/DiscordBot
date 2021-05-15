@@ -1,15 +1,14 @@
 const commando = require('discord.js-commando')
-const discord = require("discord.js");
+const discord = require("discord.js")
 const config = require('../../config.json')
 
 module.exports = class Command extends commando.Command {
     constructor(client) {
         super(client, {
-            name: 'toastpack',
-            aliases: ['pack', 'texturepack', 'faxpax'],
-            group: 'info',
-            memberName: 'toastpack',
-            description: 'ToastPack link',
+            name: 'statswebsite',
+            group: 'server',
+            memberName: 'statswebsite',
+            description: 'Stats Website',
         });
     }
 
@@ -18,8 +17,8 @@ module.exports = class Command extends commando.Command {
             const embed = new discord.MessageEmbed()
                 .setColor('#00f800')
                 .setDescription(`${message.author}` + `\n\n` +
-                    `Best 1.12.2 resource pack 10/10 -ign` + `\n\n` +
-                    `**faxhax toasted edition:** https://github.com/RemainingToast/ToastPack`
+                    `You can find more in depth player/server analytics on the stat website!` + `\n\n` +
+                    `**stats website:** https://stats.2b2t.com.au`
                 ).setFooter(`do ${config.prefix}help for more commands`)
 
             await message.channel.send(embed)

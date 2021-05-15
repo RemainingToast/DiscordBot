@@ -28,8 +28,10 @@ module.exports = class Command extends commando.Command {
                     {
                         name: "SERVER",
                         value: `\`\`\`` + `\n` +
-                            `${prefix}status` + `\n` +
+                            `${prefix}serverinfo` + `\n` +
+                            `${prefix}worldstats` + `\n` +
                             `${prefix}randommotd` + `\n` +
+                            `${prefix}statswebsite` + `\n` +
                             `${prefix}kdr username|uuid` + `\n` +
                             `${prefix}ping username|uuid` + `\n` +
                             `${prefix}lookup username|uuid` + `\n` +
@@ -44,7 +46,7 @@ module.exports = class Command extends commando.Command {
                             `${prefix}vote` + `\n` +
                             `${prefix}dupe` + `\n` +
                             `${prefix}help` + `\n` +
-                            `${prefix}info` + `\n` +
+                            `${prefix}github` + `\n` +
                             `${prefix}donate` + `\n` +
                             `${prefix}namemc` + `\n` +
                             `${prefix}subreddit` + `\n` +

@@ -5,7 +5,7 @@ const prettyms = require("pretty-ms");
 module.exports = class Command extends commando.Command {
     constructor(client) {
         super(client, {
-            name: 'serverinfo',
+            name: 'info',
             aliases: ['info'],
             group: 'admin',
             memberName: 'serverinfo',

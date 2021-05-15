@@ -20,7 +20,6 @@ module.exports = class Command extends commando.Command {
     async run(message, args) {
 
         if(message.channel.id === config.bot_ch_id) {
-
             let member = message.guild.member(message.author);
             let nickname = member ? member.displayName : null;
 
@@ -47,7 +46,7 @@ module.exports = class Command extends commando.Command {
 
                             const embed = new discord.MessageEmbed()
                                 .setColor('#00f800')
-                                .setTitle(`${username}'s Playtime`)
+                                .setTitle(`${username}'s Play Time`)
                                 .setAuthor(
                                     `${username}`,
                                     `${avatar}`,
@@ -57,29 +56,22 @@ module.exports = class Command extends commando.Command {
                                 .addFields(
                                     {
                                         name: "Total",
-                                        value: `${playtime}`,
+                                        value: `\`\`\`${playtime}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "Active",
-                                        value: `${active_pt}`,
+                                        value: `\`\`\`${active_pt}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "AFK",
-                                        value: `${afk_time}`,
+                                        value: `\`\`\`${afk_time}\`\`\``,
                                         inline: true
                                     }
                                 ).setFooter(`do ${config.prefix}help for more commands`)
 
-                            console.log(parse(active_pt, 'ms'))
-                            console.log(prettyms(parse(active_pt, 'ms'), {
-                                verbose: true
-                            }))
                             message.channel.send(embed)
-
-                        }).catch((error) => {
-                        sendError(message.channel, args[0])
                     })
                 }).catch((error) => {
                 sendError(message.channel, args[0])

@@ -6,17 +6,18 @@ const config = require('../../config.json')
 module.exports = class Command extends commando.Command {
     constructor(client) {
         super(client, {
-            name: 'randommotd',
-            aliases: ['motd'],
+            name: 'queue',
+            aliases: ['queue'],
             group: 'server',
-            memberName: 'motd',
-            description: 'Get current server motd',
+            memberName: 'queue',
+            description: '2b2t Australia Queue Info',
         });
     }
 
     async run(message) {
         if(message.channel.id === config.bot_ch_id) {
-            axios.get(`https://api.2b2t.com.au/v1/server`)
+            message.channel.startTyping(5);
+            axios.get(`https://api.2b2t.com.au/v1/queue`)
                 .then((result) => {
                     const embed = new discord.MessageEmbed()
                         .setColor('#00f800')
@@ -26,10 +27,16 @@ module.exports = class Command extends commando.Command {
                             `https://2b2t.com.au/`
                         )
                         .setDescription(
-                            `${message.author}\n\n**Random MOTD:**` + `\`\`\`` + `${result.data.motd}` + `\`\`\``
+                            `${message.author}\n\n**Queue Stats**` +
+                            `\`\`\`` +
+                            `Regular queue is ${result.data.regular} players long.` + `\n` +
+                            `Priority queue is ${result.data.priority} players long.` + `\n` +
+                            `Veteran queue is ${result.data.veteran} players long.` + `\n` +
+                            `\`\`\``
                         )
                         .setFooter('do /help on the minecraft server to get a list of commands.')
                     message.channel.send(embed)
+                    message.channel.startTyping(0);
                 }).catch((error) => {
                 console.log(error)
             })

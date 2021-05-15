@@ -59,47 +59,47 @@ module.exports = class Command extends commando.Command {
                                 .addFields(
                                     {
                                         name: "Kills",
-                                        value: `${player_kills}`,
+                                        value: `\`\`\`${player_kills}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "Deaths",
-                                        value: `${deaths}`,
+                                        value: `\`\`\`${deaths}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "KDR",
-                                        value: `${(player_kills / deaths).toFixed(2)}`,
+                                        value: `\`\`\`${(player_kills / deaths).toFixed(2)}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "First Joined",
-                                        value: `${first_join}`,
+                                        value: `\`\`\`${first_join}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "Last Seen",
-                                        value: `${last_seen}`,
+                                        value: `\`\`\`${last_seen}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "Total Playtime",
-                                        value: `${playtime}`,
+                                        value: `\`\`\`${playtime}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "Total Sessions",
-                                        value: `${total_sessions}`,
+                                        value: `\`\`\`${total_sessions}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "Longest Session",
-                                        value: `${longest_session}`,
+                                        value: `\`\`\`${longest_session}\`\`\``,
                                         inline: true
                                     },
                                     {
                                         name: "Kick Count",
-                                        value: `${kick_count}`,
+                                        value: `\`\`\`${kick_count}\`\`\``,
                                         inline: true
                                     }
                                 ).setFooter(`do ${config.prefix}help for more commands`)

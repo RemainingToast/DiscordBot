@@ -49,12 +49,25 @@ module.exports = class Command extends commando.Command {
                                     `${avatar}`,
                                     `https://namemc.com/search?q=${uuid}`
                                 )
+                                .setTitle(`${username}'s Ping`)
                                 .setThumbnail(`${avatar}`)
-                                .setDescription(
-                                    `${message.author}\n\n**${username}'s Ping**` +
-                                    `\`\`\`` +
-                                    `${username}'s best ping is ${best_ping}, worst ${worst_ping}ms and average is ${average_ping}ms.` + `\n` +
-                                    `\`\`\``
+                                .setDescription(`${message.author}\n\n`)
+                                .addFields(
+                                    {
+                                        name: "Best",
+                                        value: `\`\`\`${best_ping}\`\`\``,
+                                        inline: true
+                                    },
+                                    {
+                                        name: "Worst",
+                                        value: `\`\`\`${worst_ping}\`\`\``,
+                                        inline: true
+                                    },
+                                    {
+                                        name: "Average",
+                                        value: `\`\`\`${average_ping}\`\`\``,
+                                        inline: true
+                                    }
                                 )
                                 .setFooter('do /help on the minecraft server to get a list of commands.')
                             message.channel.send(embed)

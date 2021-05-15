@@ -52,6 +52,7 @@ module.exports = class Command extends commando.Command {
                                     `${avatar}`,
                                     `https://namemc.com/search?q=${uuid}`
                                 )
+                                .setDescription(`${message.author}\n\n`)
                                 .setThumbnail(`${avatar}`)
                                 .addFields(
                                     {

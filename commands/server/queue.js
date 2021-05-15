@@ -16,7 +16,6 @@ module.exports = class Command extends commando.Command {
 
     async run(message) {
         if(message.channel.id === config.bot_ch_id) {
-            message.channel.startTyping(5);
             axios.get(`https://api.2b2t.com.au/v1/queue`)
                 .then((result) => {
                     const embed = new discord.MessageEmbed()
@@ -26,17 +25,27 @@ module.exports = class Command extends commando.Command {
                             `https://2b2t.com.au/assets/icon.png`,
                             `https://2b2t.com.au/`
                         )
-                        .setDescription(
-                            `${message.author}\n\n**Queue Stats**` +
-                            `\`\`\`` +
-                            `Regular queue is ${result.data.regular} players long.` + `\n` +
-                            `Priority queue is ${result.data.priority} players long.` + `\n` +
-                            `Veteran queue is ${result.data.veteran} players long.` + `\n` +
-                            `\`\`\``
+                        .setTitle(`Queue Stats`)
+                        .setDescription(`${message.author}\n\n`)
+                        .addFields(
+                            {
+                                name: "Regular",
+                                value: `\`\`\`${result.data.regular}\`\`\``,
+                                inline: true
+                            },
+                            {
+                                name: "Priority",
+                                value: `\`\`\`${result.data.priority}\`\`\``,
+                                inline: true
+                            },
+                            {
+                                name: "Veteran",
+                                value: `\`\`\`${result.data.veteran}\`\`\``,
+                                inline: true
+                            }
                         )
                         .setFooter('do /help on the minecraft server to get a list of commands.')
                     message.channel.send(embed)
-                    message.channel.startTyping(0);
                 }).catch((error) => {
                 console.log(error)
             })

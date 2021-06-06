@@ -4,5 +4,6 @@
   "bot_ch_id": "",
   "meme_ch_id": "",
   "server_ip": "",
-  "prefix": "!"
+  "prefix": "!",
+  "ad_channel_id": ""
 }

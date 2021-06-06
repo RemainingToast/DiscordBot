@@ -1,5 +1,6 @@
 const commando = require('discord.js-commando')
 const path = require('path')
+const fs = require('fs');
 
 const config = require('./config.json')
 const axios = require('axios')
@@ -10,7 +11,7 @@ const client = new commando.CommandoClient({
     commandPrefix: config.prefix
 })
 
-var inviteCache = [];
+const inviteCache = require('./cache.json');
 
 client.on('ready', () => {
     console.log('[INFO] Bot is ready and starting!')
@@ -49,12 +50,28 @@ client.on('message', message => {
     if (message.author === client.user) return
 
     if (message.channel instanceof TextChannel) {
-        if (message.channel.id === config.ad_channel_id) {
-            const invite = message.content.match(/(https?:\/\/)?(www.)?(discord.(gg|io|me|li)|discordapp.com\/invite)\/[^\s/]+?(?=\b)/g)
+        if (config.ad_channel_id.includes(message.channel.id)) {
+            const regex = /(https?:\/\/)?(www.)?(discord.(gg|io|me|li)|discordapp.com\/invite)\/[^\s/]+?(?=\b)/g;
+            const content = message.content
+            const invite = content.match(/(https?:\/\/)?(www.)?(discord.(gg|io|me|li)|discordapp.com\/invite)\/[^\s/]+?(?=\b)/g)
             message.delete()
-            if (invite != null && !inviteCache.includes(invite[0])) {
-                message.channel.send(invite[0])
-                inviteCache.push(invite[0])
+
+            if (invite != null) {
+                message.channel.send("**Group description:** " + content.replace(regex, "") + "\n" + invite[0]).then(message => {
+                    inviteCache[invite[0]] = message.id
+
+                    fs.writeFile("cache.json", JSON.stringify(inviteCache, null, 2), function(err) {
+                        if (err) {
+                            console.log(err);
+                        }
+                    });
+                })
+
+                if (inviteCache[invite[0]] !== undefined) {
+                    message.channel.messages.fetch(inviteCache[invite[0]])
+                        .then(message => message.delete())
+                        .catch(console.error);
+                }
             }
         }
     }
